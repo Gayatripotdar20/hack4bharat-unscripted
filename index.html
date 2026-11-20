@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#153b2b">
+  <meta name="description" content="StockSaathi AI - intelligent inventory and purchasing assistant for kirana stores.">
+  <title>StockSaathi AI | Kirana Store Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="StockSaathi home">
+        <span class="brand-mark">S<span>+</span></span>
+        <span><strong>StockSaathi</strong><small>AI STORE ASSISTANT</small></span>
+      </a>
+
+      <div class="store-switcher">
+        <div class="store-avatar">SK</div>
+        <div class="store-meta">
+          <strong>Sri Krishna Stores</strong>
+          <small>Owner account</small>
+        </div>
+        <span class="chevron">⌄</span>
+      </div>
+
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav-menu">
+        <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span>Overview</button>
+        <button class="nav-item" data-page="pos"><span class="nav-icon">▦</span>Sales / POS</button>
+        <button class="nav-item" data-page="inventory"><span class="nav-icon">▤</span>Inventory</button>
+        <button class="nav-item" data-page="movement"><span class="nav-icon">↗</span>Stock movement</button>
+        <button class="nav-item" data-page="procurement"><span class="nav-icon">✧</span>AI procurement <span class="nav-count">3</span></button>
+        <button class="nav-item" data-page="khata"><span class="nav-icon">▧</span>Khata ledger</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <strong>Need a hand?</strong>
+          <p>Ask Saathi in simple words. We're here to help.</p>
+          <button data-page="assistant">Talk to Saathi <span>→</span></button>
+        </div>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>Settings</button>
+        <div class="profile">
+          <div class="profile-avatar">MS</div>
+          <div><strong>Mustafa Shaik</strong><small>Store owner</small></div>
+          <span class="more">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Overview</strong></div>
+        <div class="top-actions">
+          <div class="sync-pill"><span class="sync-dot"></span> All changes synced</div>
+          <button class="icon-button" title="Notifications" id="notifyBtn">♧<i></i></button>
+          <div class="top-avatar">MS</div>
+        </div>
+      </header>
+
+      <div class="content" id="pageContent">
+        <section class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> THURSDAY, 20 NOVEMBER 2026</div>
+            <h1>Good evening, Mustafa <span>✦</span></h1>
+            <p>Here's what's happening at your store today.</p>
+          </div>
+          <div class="welcome-actions">
+            <button class="btn btn-light" data-page="inventory">＋ Add stock</button>
+            <button class="btn btn-primary" data-page="pos">＋ Record a sale</button>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top"><span>Today's sales</span><span class="stat-icon green">₹</span></div>
+            <div class="stat-value">₹8,450</div>
+            <div class="stat-foot"><span class="positive">↗ 12.8%</span> vs yesterday</div>
+            <div class="sparkline green-line"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Inventory value</span><span class="stat-icon blue">▤</span></div>
+            <div class="stat-value">₹1,24,800</div>
+            <div class="stat-foot"><span class="neutral">Across 128 items</span></div>
+            <div class="mini-progress"><span style="width:72%"></span></div>
+            <small class="muted">72% of your ₹1.75L target</small>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Items to restock</span><span class="stat-icon amber">↗</span></div>
+            <div class="stat-value">08 <small class="value-unit">items</small></div>
+            <div class="stat-foot"><span class="warning-text">3 need attention</span> today</div>
+            <div class="tag-row"><span class="tag tag-red">2 critical</span><span class="tag tag-amber">6 low</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Near expiry</span><span class="stat-icon red">◷</span></div>
+            <div class="stat-value">05 <small class="value-unit">batches</small></div>
+            <div class="stat-foot"><span class="danger-text">₹1,240 at risk</span> in 7 days</div>
+            <div class="expiry-dots"><b></b><b></b><b></b><b></b><b></b><span>View batches →</span></div>
+          </article>
+        </section>
+
+        <section class="main-grid">
+          <article class="panel sales-panel">
+            <div class="panel-heading">
+              <div><h2>Sales overview</h2><p>Your store's performance at a glance</p></div>
+              <select id="salesRange">
+                <option>This week</option>
+                <option>Last week</option>
+                <option>This month</option>
+              </select>
+            </div>
+            <div class="sales-summary">
+              <strong>₹42,680</strong>
+              <span class="positive">↗ 8.4%</span>
+              <small>compared to last week</small>
+            </div>
+            <div class="chart-wrap">
+              <div class="chart-y"><span>12k</span><span>9k</span><span>6k</span><span>3k</span><span>0</span></div>
+              <div class="chart" aria-label="Sales chart">
+                <div class="chart-grid"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="bars">
+                  <div class="bar-group"><b style="height:42%"></b><span>Mon</span></div>
+                  <div class="bar-group"><b style="height:62%"></b><span>Tue</span></div>
+                  <div class="bar-group"><b style="height:50%"></b><span>Wed</span></div>
+                  <div class="bar-group"><b style="height:82%"></b><span>Thu</span></div>
+                  <div class="bar-group"><b style="height:67%"></b><span>Fri</span></div>
+                  <div class="bar-group"><b style="height:95%"></b><span>Sat</span></div>
+                  <div class="bar-group"><b class="bar-today" style="height:73%"></b><span>Sun</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel alerts-panel">
+            <div class="panel-heading">
+              <div><h2>Needs your attention</h2><p>Small actions, healthier stock</p></div>
+              <span class="live-label">LIVE</span>
+            </div>
+            <div class="alert-list">
+              <div class="alert-item">
+                <span class="alert-symbol red-bg">!</span>
+                <div><strong>2 items almost out</strong><p>Parle-G, Sunflower oil</p></div>
+                <button data-page="inventory">View <span>→</span></button>
+              </div>
+              <div class="alert-item">
+                <span class="alert-symbol amber-bg">◷</span>
+                <div><strong>5 batches near expiry</strong><p>Within the next 7 days</p></div>
+                <button data-page="movement">Review <span>→</span></button>
+              </div>
+              <div class="alert-item">
+                <span class="alert-symbol blue-bg">✧</span>
+                <div><strong>Purchase list is ready</strong><p>3 recommendations for you</p></div>
+                <button data-page="procurement">Review <span>→</span></button>
+              </div>
+            </div>
+            <div class="alert-footer">You are in control. Nothing gets ordered without your approval.</div>
+          </article>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="panel products-panel">
+            <div class="panel-heading">
+              <div><h2>Popular products</h2><p>Top-selling items this week</p></div>
+              <button class="text-link" data-page="inventory">View inventory →</button>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>PRODUCT</th><th>UNITS SOLD</th><th>IN STOCK</th><th>STATUS</th></tr></thead>
+                <tbody>
+                  <tr><td><span class="product-thumb biscuit">▰</span><span class="product-name">Parle-G Gold</span><small>Biscuits · 100g</small></td><td>86</td><td>12 packs</td><td><span class="status status-low">Low stock</span></td></tr>
+                  <tr><td><span class="product-thumb oil">◒</span><span class="product-name">Fortune Sunflower Oil</span><small>Edible oil · 1L</small></td><td>64</td><td>08 bottles</td><td><span class="status status-critical">Critical</span></td></tr>
+                  <tr><td><span class="product-thumb milk">◧</span><span class="product-name">Nandini Toned Milk</span><small>Dairy · 500ml</small></td><td>58</td><td>34 packs</td><td><span class="status status-good">Healthy</span></td></tr>
+                  <tr><td><span class="product-thumb soap">✦</span><span class="product-name">Mysore Sandal Soap</span><small>Personal care · 75g</small></td><td>42</td><td>26 bars</td><td><span class="status status-good">Healthy</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel saathi-panel">
+            <div class="saathi-head">
+              <div class="saathi-orb">✦</div>
+              <div><span class="ai-label">YOUR AI ASSISTANT</span><h2>Saathi's insight</h2></div>
+              <span class="sparkle">✧</span>
+            </div>
+            <p class="insight-copy">You've sold <strong>Parle-G 28% faster</strong> this week. At this rate, your current stock may run out in about <strong>2 days.</strong></p>
+            <div class="insight-recommend">
+              <span>Suggested action</span>
+              <strong>Restock 40 packs</strong>
+              <small>Based on 7-day sales and current stock</small>
+            </div>
+            <button class="btn btn-primary full-btn" data-page="procurement">Review recommendation <span>→</span></button>
+            <div class="ai-disclaimer">AI suggestion · Check before approving</div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <span>© 2026 StockSaathi AI · Built for neighbourhood stores</span>
+          <span><i class="sync-dot"></i> Demo data · Last updated just now</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
